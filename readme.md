@@ -41,17 +41,16 @@ $ mkdir data_out
 
 ## Performance
 *   Configuration Enhancments
-  *   Parquet files. Partition by an appropriate date field.
-  *   Specify write nodes. Collaborate with Data Infrastructure to understand cluster.
+    *   Parquet files. Partition by an appropriate date field.
+    *   Specify write nodes. Collaborate with Data Infrastructure to understand cluster.
 
 *   Data volume
-   *   filter out-of-scope records immediately after injestion. Remove records that don't support the use case.
+    *   filter out-of-scope records immediately after injestion. Remove records that don't support the use case.
 
-      ```
-   df_import = spark.read.json(source_data/raw.json)
-   df_stage = df_import.filter(df.country == 'United States')
-
-      ```
+        ```
+        df_import = spark.read.json(source_data/raw.json)
+        df_stage = df_import.filter(df.country == 'United States')
+        ```
 
 ## Business Considerations
 *   Type 2 SCD for Financial use cases
