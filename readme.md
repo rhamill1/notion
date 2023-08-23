@@ -67,6 +67,7 @@ df.select(df_c.population, df_c.country).filter(df_c.population >= 10000000).sho
 df.filter(df.country != 'England').groupby('country', 'status').sum('comments').orderBy('country', desc('sum(comments)')).show(truncate=False)
 
 df = spark.createDataFrame(create_sample_data(1000), schema=['user_id', 'status', 'country', 'post_date', 'comments'])
+df = spark.createDataFrame(create_sample_data(200),schema='created_on timestamp_ntz, request_id int, call_duration int, client int')
 df.createOrReplaceTempView('posts')
 spark.sql('SELECT user_id, status FROM posts;').show()
 ```
